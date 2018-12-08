@@ -128,14 +128,14 @@ module TangleID
       return send boobjdy
     end
 
-    def send_notify
+    def send_notify(uuid, receiver, message)
       # https://github.com/TangleID/tangleid-api-examples/blob/master/send_notify.sh
       # POST '{"command":"send_notify","uuid":"SD9BCRDGJYWDHPTDNOPRULFWWG","receiver": "SD9BCRDGJYWDHPTDNOPRULFWWG","message":"HAPPYBIRTHDAY"}'
       obj = {
         "command":"send_notify",
-        "uuid":"SD9BCRDGJYWDHPTDNOPRULFWWG",
-        "receiver": "SD9BCRDGJYWDHPTDNOPRULFWWG",
-        "message":"HAPPYBIRTHDAY"
+        "uuid":uuid,
+        "receiver": receiver,
+        "message": message
       }
 
       return send obj

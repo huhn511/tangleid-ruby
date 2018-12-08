@@ -2,8 +2,7 @@ language: ruby
 cache: bundler
 
 rvm:
-  - jruby
-  - 2.0.0
+  - 2.5.3
 
 script: 'bundle exec rake'
 

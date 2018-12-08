@@ -4,7 +4,9 @@
 
 [![Gem Version](https://badge.fury.io/rb/tangleid-ruby.png)](http://badge.fury.io/rb/tangleid-ruby)
 
-[![Coverage Status](https://coveralls.io/repos/github/huhn511/tangleid-ruby/badge.svg?branch=master)](https://coveralls.io/github/huhn511/tangleid-ruby?branch=master)
+[![Maintainability](https://api.codeclimate.com/v1/badges/6cad8e388b45e851fd03/maintainability)](https://codeclimate.com/github/huhn511/tangleid-ruby/maintainability)
+
+[![Test Coverage](https://api.codeclimate.com/v1/badges/6cad8e388b45e851fd03/test_coverage)](https://codeclimate.com/github/huhn511/tangleid-ruby/test_coverage)
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/tangleid`. To experiment with that code, run `bin/console` for an interactive prompt.
 

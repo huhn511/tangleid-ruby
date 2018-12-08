@@ -183,11 +183,11 @@ describe TangleID do
     end
     it 'with invalid inputs should return an empty array' do
 
-      valid_input = {
+      invalid_input = {
         uuid: "INVALID"
       }
 
-      response = @api.get_all_notifies(valid_input)
+      response = @api.get_all_notifies(invalid_input)
 
       expect(response).not_to be("")
       expect(response).not_to be(false)

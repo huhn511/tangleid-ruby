@@ -10,7 +10,6 @@ module TangleID
     attr_reader :swarm_node_url
 
     def initialize(settings = {})
-      pp "initialize - settings #{settings}"
       setSettings(settings)
     end
 
@@ -39,6 +38,7 @@ module TangleID
         "command":"login",
         "uuid": uuid
       }
+
       return send obj
     end
 
@@ -55,6 +55,7 @@ module TangleID
         "uuid":"ED9BCRDGJYWDHPTDNOPRULFWWG",
         "pk":"SD9BCRDGJYWDHPTDNOPRULFWWG"
       }
+
       return send obj
     end
 
@@ -65,6 +66,7 @@ module TangleID
         "command":"get_all_claims",
         "uuid": "V9TCFLAOGGTAQATTJBLABAG9WY"
       }
+
       return send obj
     end
 
@@ -103,6 +105,7 @@ module TangleID
         "uuid": "SD9BCRDGJYWDHPTDNOPRULFWWG",
         "txnhash":"KQD9IKGNUM9ZVMHJHKVZLAAVDNDWJRNTZDYB9SXKMXPMBYNRGCOIMIVLTSRCJEXRAMWDNZODLBVR99999"
       }
+
       return send obj
     end
 
@@ -146,7 +149,7 @@ module TangleID
     def setSettings(settings)
       settings = symbolize_keys(settings)
 
-      @swarm_node_url = settings[:swarm_node_url] || 'http://node2.puyuma.org:8000'
+      @swarm_node_url = settings[:swarm_node_url] || 'http://node2.puyuma.org:8000/'
     end
 
     def symbolize_keys(hash)
@@ -156,21 +159,20 @@ module TangleID
     def send(obj)
       uri = URI.parse(@swarm_node_url)
       https = Net::HTTP.new(uri.host,uri.port)
+      # TODO: comment in line blow
       #https.use_ssl = true
       req = Net::HTTP::Post.new(uri.path, initheader = {'Content-Type' =>'application/json'})
-      req.body = body.to_json
+      req.body = obj.to_json
       res = https.request(req)
       puts "Response #{res.code} #{res.message}}"
+
       if res.code == "200"
-        pp "success"
-        puts "Address: #{res.body}"
+        puts "Success! Hash: #{res.body}"
         return res.body
       else
-        pp "error"
-        pp res.body
+        pp "Error: #{res.body}"
         return false
       end
     end
-
   end
 end

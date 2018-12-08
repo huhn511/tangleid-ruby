@@ -13,19 +13,19 @@ module TangleID
       setSettings(settings)
     end
 
-    def new_user(first_name:, last_name:)
+    def new_user(uuid:, first_name:, last_name:, cosignerp:, cosigners:, profile_picture:, pk:)
       # https://github.com/TangleID/tangleid-api-examples/blob/master/new_user.sh
       # POST '{"command":"new_user","first_name":"Huang","cosignerp":"SD9BCRDGJYWDHPTDNOPRULFWWG","cosigners":"SD9BCRDGJYWDHPTDNOPRULFWWG","last_name":"JyunYu","profile_picture":"https://s3-us-west-1.amazonaws.com/niusnews-imgs/146716_5.jpg","uuid":"ED9BCRDGJYWDHPTDNOPRULFWWG","pk":"SD9BCRDGJYWDHPTDNOPRULFWWG"}'
 
       data = {
         "command":"new_user",
+        "uuid": uuid,
         "first_name": first_name,
-        "cosignerp":"SD9BCRDGJYWDHPTDNOPRULFWWG",
-        "cosigners":"SD9BCRDGJYWDHPTDNOPRULFWWG",
         "last_name": last_name,
-        "profile_picture":"https://s3-us-west-1.amazonaws.com/niusnews-imgs/146716_5.jpg",
-        "uuid":"ED9BCRDGJYWDHPTDNOPRULFWWG",
-        "pk":"SD9BCRDGJYWDHPTDNOPRULFWWG"
+        "cosignerp": cosignerp,
+        "cosigners": cosigners,
+        "profile_picture": profile_pictures,
+        "pk": pk
       }
 
       return send data
@@ -165,7 +165,7 @@ module TangleID
       req = Net::HTTP::Post.new(uri.path, initheader = {'Content-Type' =>'application/json'})
       req.body = data.to_json
       res = https.request(req)
-      
+
       if res.code == "200"
         return res.body
       else

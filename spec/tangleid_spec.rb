@@ -191,7 +191,7 @@ describe TangleID do
 
       expect(response).not_to be("")
       expect(response).not_to be(false)
-      expect(response.include?("'hashes': []")).to be(true)
+      expect(response.include?("[]")).to be(true)
     end
   end
 

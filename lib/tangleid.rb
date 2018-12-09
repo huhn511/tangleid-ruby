@@ -24,7 +24,7 @@ module TangleID
         "last_name": last_name,
         "cosignerp": cosignerp,
         "cosigners": cosigners,
-        "profile_picture": profile_pictures,
+        "profile_picture": profile_picture,
         "pk": pk
       }
 

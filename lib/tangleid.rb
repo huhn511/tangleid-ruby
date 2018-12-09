@@ -13,7 +13,7 @@ module TangleID
       setSettings(settings)
     end
 
-    def new_user(uuid:, first_name:, last_name:, cosignerp:, cosigners:, profile_picture:, pk:)
+    def new_user(uuid:, first_name:, last_name:, cosignerp:, cosigners:, profile_picture:, public_key:)
       # https://github.com/TangleID/tangleid-api-examples/blob/master/new_user.sh
       # POST '{"command":"new_user","first_name":"Huang","cosignerp":"SD9BCRDGJYWDHPTDNOPRULFWWG","cosigners":"SD9BCRDGJYWDHPTDNOPRULFWWG","last_name":"JyunYu","profile_picture":"https://s3-us-west-1.amazonaws.com/niusnews-imgs/146716_5.jpg","uuid":"ED9BCRDGJYWDHPTDNOPRULFWWG","pk":"SD9BCRDGJYWDHPTDNOPRULFWWG"}'
 
@@ -25,7 +25,7 @@ module TangleID
         "cosignerp": cosignerp,
         "cosigners": cosigners,
         "profile_picture": profile_picture,
-        "pk": pk
+        "pk": public_key
       }
 
       return send data
@@ -42,7 +42,7 @@ module TangleID
       return send data
     end
 
-    def new_group(uuid:, first_name:, last_name:, cosignerp:, cosigners:, profile_picture:, pk:)
+    def new_group(uuid:, first_name:, last_name:, cosignerp:, cosigners:, profile_picture:, public_key:)
       # https://github.com/TangleID/tangleid-api-examples/blob/master/new_group.sh
       # POST '{"command":"new_group","first_name":"Huang", "cosignerp":"SD9BCRDGJYWDHPTDNOPRULFWWG","cosigners":"SD9BCRDGJYWDHPTDNOPRULFWWG", "last_name":"JyunYu","profile_picture":"https://s3-us-west-1.amazonaws.com/niusnews-imgs/146716_5.jpg", "uuid":"ED9BCRDGJYWDHPTDNOPRULFWWG","pk":"SD9BCRDGJYWDHPTDNOPRULFWWG"}'
       data = {
@@ -53,7 +53,7 @@ module TangleID
         "last_name": last_name,
         "profile_picture": profile_picture,
         "uuid": uuid,
-        "pk": pk
+        "pk": public_key
       }
 
       return send data

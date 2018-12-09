@@ -15,7 +15,7 @@ describe TangleID do
         cosigners: "SD9BCRDGJYWDHPTDNOPRULFWWG",
         profile_picture: "https://s3-us-west-1.amazonaws.com/niusnews-imgs/146716_5.jpg",
         uuid: "ED9BCRDGJYWDHPTDNOPRULFWWG",
-        pk: "SD9BCRDGJYWDHPTDNOPRULFWWG"
+        public_key: "SD9BCRDGJYWDHPTDNOPRULFWWG"
       }
       response = @api.new_user(valid_input)
       expect(response).not_to be("")
@@ -60,7 +60,7 @@ describe TangleID do
         cosignerp: "SD9BCRDGJYWDHPTDNOPRULFWWG",
         cosigners: "SD9BCRDGJYWDHPTDNOPRULFWWG",
         profile_picture: "https://s3-us-west-1.amazonaws.com/niusnews-imgs/146716_5.jpg",
-        pk: "SD9BCRDGJYWDHPTDNOPRULFWWG"
+        public_key: "SD9BCRDGJYWDHPTDNOPRULFWWG"
       }
 
       response = @api.new_group(valid_input)
